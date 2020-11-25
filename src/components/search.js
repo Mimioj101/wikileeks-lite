@@ -4,7 +4,7 @@ class Search extends React.Component {
     render() {
         return (
             <div>
-                <input type="search" />
+                <input type="search" placeholder="Search Wikipedia"/>
             </div>
         );
     }
