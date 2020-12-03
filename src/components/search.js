@@ -2,15 +2,6 @@ import React from "react";
 
 class Search extends React.Component {
     
-    // state = {
-    //     searchTerm: ""
-    // }
-
-    // changeHandler = (e) => {
-    //     e.persist()
-    //     this.setState({searchTerm: e.target.value})
-    // }
-    
     searchHandler = (e) => {
         e.preventDefault();
         this.props.searchHandler(e.target[0].value)
@@ -26,7 +17,5 @@ class Search extends React.Component {
         );
     }
 }
-
-// onChange={this.changeHandler} value={this.state.searchTerm}
 
 export default Search;
