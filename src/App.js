@@ -4,14 +4,17 @@ import Search from './components/search.js';
 import WikiContainer from './containers/wiki-container.js';
 
 class App extends React.Component {
+
+  state = {
+    searchedWikis: []
+  }
   
   searchHandler = (searchTerm) => {
      // let banana = searchTerm.split(" ").join("%20")
      fetch(`https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&list=search&srlimit=50&srsearch=${searchTerm}&utf8=&format=json`)
      .then(resp => resp.json())
      .then(data => 
-      //  this.setState({searchedWikis: data["query"]["search"]})
-      console.log(data["query"]["search"])
+       this.setState({searchedWikis: data["query"]["search"]})
      )
   }
   
@@ -20,7 +23,7 @@ class App extends React.Component {
       <div className="App">
         <p>WikiLeeks Lite</p>
         <Search searchHandler={this.searchHandler}/>
-        <WikiContainer />
+        <WikiContainer wikis={this.state.searchedWikis} />
       </div>
     )
   }

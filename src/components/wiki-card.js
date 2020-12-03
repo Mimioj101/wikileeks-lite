@@ -2,9 +2,10 @@ import React from "react";
 
 class WikiCard extends React.Component {
     render() {
+        // console.log("WIKIS", this.props.wiki.title)
         return (
             <div>
-                <p>WikiCard</p>
+                <p>{this.props.wiki.title}</p>
             </div>
         );
     }
