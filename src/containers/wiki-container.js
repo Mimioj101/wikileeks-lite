@@ -8,6 +8,7 @@ class WikiContainer extends React.Component {
     }
     
     render() {
+        // console.log(this.props.wikis)
         return (
             <div className="wiki-container" >
                 {this.renderWikis()}

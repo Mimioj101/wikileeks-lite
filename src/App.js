@@ -9,15 +9,19 @@ class App extends React.Component {
     searchedWikis: []
   }
   
+  // need to create backend proxy
+
   searchHandler = (searchTerm) => {
-     fetch(`https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&list=search&srlimit=50&srsearch=${searchTerm}&utf8=&srqiprofile=popular_inclinks_pv&format=json`)
+     fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&srlimit=50&srsearch=${searchTerm}&utf8=&srqiprofile=popular_inclinks_pv&format=json`)
      .then(resp => resp.json())
      .then(data => 
-       this.setState({searchedWikis: data["query"]["search"]})
+       this.setState({searchedWikis: data["query"]["search"]}),
+      //  console.log("SEARCHING")
      )
   }
   
   render() {
+    console.log(this.state.searchedWikis)
     return (
       <div className="App">
         <p>WikiLeeks Lite</p>
