@@ -11,7 +11,7 @@ class Search extends React.Component {
         return (
             <div>
                 <form className="search-form" onSubmit={this.searchHandler}>
-                    <input type="search" placeholder="Search..." />
+                    <input className="search-bar" type="search" placeholder="Search..." />
                 </form>
             </div>
         );
