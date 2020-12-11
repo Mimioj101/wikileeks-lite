@@ -12,12 +12,16 @@ class App extends React.Component {
   // need to create backend proxy
 
   searchHandler = (searchTerm) => {
-     fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&srlimit=50&srsearch=${searchTerm}&utf8=&srqiprofile=popular_inclinks_pv&format=json`)
-     .then(resp => resp.json())
-     .then(data => 
-       this.setState({searchedWikis: data["query"]["search"]}),
-      //  console.log("SEARCHING")
-     )
+    //  fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&srlimit=50&srsearch=${searchTerm}&utf8=&srqiprofile=popular_inclinks_pv&format=json`)
+    //  .then(resp => resp.json())
+    //  .then(data => 
+    //    this.setState({searchedWikis: data["query"]["search"]})
+    //  )
+    fetch(`http://localhost:3000/wikiarticles?search=${searchTerm}`)
+    .then(resp => resp.json())
+    .then(data => 
+      this.setState({searchedWikis: data["query"]["search"]})
+    )
   }
   
   render() {
