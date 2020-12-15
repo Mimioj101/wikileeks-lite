@@ -20,7 +20,8 @@ class App extends React.Component {
     fetch(`http://localhost:3000/wikiarticles?search=${searchTerm}`)
     .then(resp => resp.json())
     .then(data => 
-      this.setState({searchedWikis: data["query"]["search"]})
+      // this.setState({searchedWikis: data["query"]["search"]})
+      console.log(data)
     )
   }
   
